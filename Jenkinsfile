@@ -1,6 +1,6 @@
 node{
     stage("1"){
-        git branch: 'develop', url: 'https://github.com/Idander/git-jenkins.git'
+        checkout([$class: 'GitSCM', branches: [[name: '*/feature*']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Idander/git-jenkins.git']]])
         bat "dir"
     }
 }
